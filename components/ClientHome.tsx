@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import { Project } from "@/lib/projects";
 import portfolioData from "@/data/portfolio.json";
 import type { Experience as ExperienceType } from "@/lib/experience";
+import Neofetch from "@/components/Neofetch";
 
 interface ClientHomeProps {
   projects: Project[];
@@ -19,6 +20,23 @@ interface ClientHomeProps {
 
 export default function ClientHome({ projects, experiences }: ClientHomeProps) {
   const [activeSection, setActiveSection] = useState("about");
+  const [aboutCommand, setAboutCommand] = useState("");
+  const [showAboutEditor, setShowAboutEditor] = useState(false);
+
+  useEffect(() => {
+    const cmd = "vim about.txt";
+    let i = 0;
+    const interval = setInterval(() => {
+      setAboutCommand(cmd.slice(0, i + 1));
+      i++;
+      if (i > cmd.length) {
+        clearInterval(interval);
+        setTimeout(() => setShowAboutEditor(true), 600);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,31 +72,21 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
           {/* LEFT COLUMN (Fixed) */}
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                <Link href="/">Pratik Gupta</Link>
-              </h1>
-              <h2 className="mt-3 text-lg font-medium tracking-tight text-foreground sm:text-xl">
-                Software Engineer & AI Enthusiast
-              </h2>
-              <p className="mt-4 max-w-xs leading-normal text-muted-foreground">
-                I am passionate about leveraging cloud-native technologies and
-                advanced AI to drive innovation and solve complex,
-                data-intensive problems.
-              </p>
+              <Neofetch />
 
               <nav
                 className="nav hidden lg:block"
                 aria-label="In-page jump links"
               >
-                <ul className="mt-16 w-max">
+                <ul className="mt-16 w-max font-mono">
                   {navLinks.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
                         className={cn(
-                          "group flex items-center py-3 active",
+                          "group flex items-center py-2 transition-all",
                           activeSection === link.href.substring(1)
-                            ? "text-foreground"
+                            ? "text-primary font-bold"
                             : "text-muted-foreground hover:text-foreground"
                         )}
                         onClick={(e) => {
@@ -91,16 +99,10 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
                           }
                         }}
                       >
-                        <span
-                          className={cn(
-                            "mr-4 h-px w-8 bg-muted-foreground transition-all group-hover:w-16 group-hover:bg-foreground",
-                            activeSection === link.href.substring(1) &&
-                              "w-16 bg-foreground"
-                          )}
-                        ></span>
-                        <span className="text-xs font-bold uppercase tracking-widest">
-                          {link.name}
+                        <span className="mr-4 text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                          &gt;
                         </span>
+                        <span>[{link.name}]</span>
                       </Link>
                     </li>
                   ))}
@@ -108,43 +110,48 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
               </nav>
             </div>
 
-            <ul
-              className="ml-1 mt-8 flex items-center gap-5"
-              aria-label="Social media"
-            >
-              <li>
-                <Link
-                  href={portfolioData.social.github}
-                  target="_blank"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <span className="sr-only">GitHub</span>
-                  <Github className="h-6 w-6" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={portfolioData.social.linkedin}
-                  target="_blank"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <span className="sr-only">LinkedIn</span>
-                  <Linkedin className="h-6 w-6" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={portfolioData.social.email}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <span className="sr-only">Email</span>
-                  <Mail className="h-6 w-6" />
-                </Link>
-              </li>
-              <li>
+            <div>
+              <div className="mb-4 text-xs font-mono text-muted-foreground">
+                <span className="text-primary">$</span> ./connect.sh
+              </div>
+              <ul
+                className="ml-1 flex items-center gap-5"
+                aria-label="Social media"
+              >
+                <li>
+                  <Link
+                    href={portfolioData.social.github}
+                    target="_blank"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <span className="sr-only">GitHub</span>
+                    <Github className="h-6 w-6" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={portfolioData.social.linkedin}
+                    target="_blank"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <span className="sr-only">LinkedIn</span>
+                    <Linkedin className="h-6 w-6" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={portfolioData.social.email}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <span className="sr-only">Email</span>
+                    <Mail className="h-6 w-6" />
+                  </Link>
+                </li>
+                {/* <li>
                 <ThemeSelector />
-              </li>
-            </ul>
+              </li> */}
+              </ul>
+            </div>
           </header>
 
           {/* RIGHT COLUMN (Scrollable) */}
@@ -155,24 +162,82 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
               className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
               aria-label="About me"
             >
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/80 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-                <h2 className="font-handwriting text-3xl font-bold text-primary lg:text-4xl">
-                  About
+              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/95 px-6 py-5 border-b border-primary/20 md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:border-none lg:backdrop-blur-none">
+                <h2 className="text-2xl font-bold text-primary lg:text-3xl min-h-[40px] flex items-center">
+                  <span className="text-muted-foreground mr-2">$</span>
+                  {!showAboutEditor ? (
+                    <span>
+                      {aboutCommand}
+                      <span className="inline-block w-2.5 h-5 bg-primary ml-1 animate-pulse align-middle"></span>
+                    </span>
+                  ) : (
+                    <>
+                      <span className="mr-2">vim</span>
+                      <span className="text-foreground">about.txt</span>
+                    </>
+                  )}
                 </h2>
               </div>
-              <div className="text-muted-foreground font-normal leading-relaxed">
-                {portfolioData.about.paragraphs.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className="mb-4"
-                    dangerouslySetInnerHTML={{
-                      __html: paragraph.replace(
-                        /\[([^\]]+)\]\(([^)]+)\)/g,
-                        '<span class="text-foreground font-medium hover:text-primary transition-colors cursor-default">$1</span>'
-                      ),
-                    }}
-                  />
-                ))}
+
+              <div
+                className={cn(
+                  "overflow-hidden rounded-md border border-muted bg-card shadow-sm font-mono text-sm transition-all duration-700 ease-out",
+                  showAboutEditor
+                    ? "opacity-100 max-h-[1000px] translate-y-0"
+                    : "opacity-0 max-h-0 -translate-y-4"
+                )}
+              >
+                <div className="flex min-h-[300px]">
+                  {/* Gutter */}
+                  <div className="flex w-12 flex-col items-end gap-1 border-r border-muted bg-neutral-900/50 py-4 pr-3 text-muted-foreground/30 select-none">
+                    {portfolioData.about.paragraphs.map((_, i) => (
+                      <span key={i} className="leading-relaxed">
+                        {i + 1}
+                      </span>
+                    ))}
+                    <span>~</span>
+                    <span>~</span>
+                    <span>~</span>
+                  </div>
+
+                  {/* Editor Content */}
+                  <div className="flex-1 px-4 py-4 text-slate-300 leading-relaxed">
+                    {portfolioData.about.paragraphs.map((paragraph, index) => (
+                      <p
+                        key={index}
+                        className="mb-4 last:mb-0"
+                        dangerouslySetInnerHTML={{
+                          __html: paragraph.replace(
+                            /\[([^\]]+)\]\(([^)]+)\)/g,
+                            '<span class="text-foreground font-medium hover:text-primary transition-colors cursor-default">$1</span>'
+                          ),
+                        }}
+                      />
+                    ))}
+                    <p className="mt-4 text-emerald-500/50 italic">
+                      # I&apos;ve been using Vim for years... mostly because I
+                      don't know how to exit.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Status Bar */}
+                <div className="flex items-center justify-between border-t border-muted bg-muted px-3 py-1 text-xs select-none">
+                  <div className="flex items-center gap-4">
+                    <span className="bg-primary text-background font-bold px-1.5 uppercase">
+                      Normal
+                    </span>
+                    <span className="text-foreground font-medium">
+                      about.txt
+                    </span>
+                    <span className="text-muted-foreground">[+]</span>
+                  </div>
+                  <div className="flex gap-4 text-muted-foreground">
+                    <span>utf-8</span>
+                    <span>100%</span>
+                    <span>1:1</span>
+                  </div>
+                </div>
               </div>
             </section>
 
@@ -185,9 +250,11 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
               className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
               aria-label="Selected projects"
             >
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/80 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-                <h2 className="font-handwriting text-3xl font-bold text-primary lg:text-4xl">
-                  Projects
+              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/95 px-6 py-5 border-b border-primary/20 md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:border-none lg:backdrop-blur-none">
+                <h2 className="text-2xl font-bold text-primary lg:text-3xl">
+                  <span className="text-muted-foreground mr-2">$</span>
+                  <span className="mr-2">ls</span>
+                  <span className="text-foreground">-la projects/</span>
                 </h2>
               </div>
               <div className="group/list">
@@ -197,7 +264,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
                     href={`/projects/${project.slug}`}
                     className="group/item relative mb-12 flex flex-col gap-4 pb-4 transition-all hover:!opacity-100 group-hover/list:opacity-50 sm:flex-row"
                   >
-                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100/50 dark:lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-primary/10 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(0,255,0,0.1)] lg:group-hover:drop-shadow-lg"></div>
 
                     <div className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2 whitespace-nowrap">
                       Feature

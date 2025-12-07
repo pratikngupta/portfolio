@@ -11,8 +11,9 @@ export default function BlogIndex() {
       <Navbar />
       <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <h1 className="font-handwriting text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Blog
+          <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+            <span className="text-muted-foreground mr-2">$</span>
+            cat blog_posts.txt
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Thoughts on development, design, and everything in between.

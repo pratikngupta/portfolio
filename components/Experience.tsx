@@ -13,9 +13,11 @@ export default function Experience({ experiences }: ExperienceProps) {
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
       aria-label="Work experience"
     >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/80 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-        <h2 className="font-handwriting text-3xl font-bold text-primary lg:text-4xl">
-          Experience
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/95 px-6 py-5 border-b border-primary/20 md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:border-none lg:backdrop-blur-none">
+        <h2 className="text-2xl font-bold text-primary lg:text-3xl">
+          <span className="text-muted-foreground mr-2">$</span>
+          <span className="mr-2">history</span>
+          <span className="text-foreground">| grep experience</span>
         </h2>
       </div>
       <div>
@@ -26,7 +28,7 @@ export default function Experience({ experiences }: ExperienceProps) {
                 href={`/experience/${exp.slug}`}
                 className="group/item relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
               >
-                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100/50 dark:lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-primary/10 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(0,255,0,0.1)] lg:group-hover:drop-shadow-lg"></div>
 
                 <header
                   className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2"

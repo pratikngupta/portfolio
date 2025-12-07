@@ -16,47 +16,51 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-slate-950/50 backdrop-blur-xl supports-[backdrop-filter]:bg-slate-950/20">
-      <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 w-full border-b border-white/20 bg-background text-foreground font-mono">
+      <div className="mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
           <Link
             href="/"
-            className="font-handwriting text-2xl font-bold text-foreground hover:text-primary transition-colors"
+            className="text-lg font-bold text-primary hover:bg-primary hover:text-background px-2 py-1 transition-none"
           >
-            Pratik Gupta
+            ~/portfolio
           </Link>
-          <div className="hidden md:flex md:gap-6">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === link.href
-                    ? "text-foreground"
-                    : "text-muted-foreground"
+          <div className="hidden md:flex items-center">
+            {links.map((link, index) => (
+              <div key={link.href} className="flex items-center">
+                {index > 0 && (
+                  <span className="text-muted-foreground mx-2">|</span>
                 )}
-              >
-                {link.name}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-sm font-medium px-2 py-0.5 transition-none",
+                    pathname === link.href
+                      ? "bg-primary text-background font-bold"
+                      : "text-muted-foreground hover:text-primary hover:underline hover:decoration-2 hover:underline-offset-4"
+                  )}
+                >
+                  [{link.name}]
+                </Link>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Mobile menu link placeholder or simple list for mobile */}
-        <div className="flex md:hidden gap-4">
+        <div className="flex md:hidden gap-4 overflow-x-auto">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-xs font-medium transition-colors hover:text-primary",
+                "text-xs font-medium px-1 py-0.5 whitespace-nowrap",
                 pathname === link.href
-                  ? "text-foreground"
+                  ? "bg-primary text-background"
                   : "text-muted-foreground"
               )}
             >
-              {link.name}
+              [{link.name}]
             </Link>
           ))}
         </div>
