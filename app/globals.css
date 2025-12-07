@@ -118,27 +118,27 @@
   --ring: #61afef;
 }
 
-/* One Light Pro Theme (Softened) */
+/* One Light Pro Theme (Now Solarized Light) */
 .one-light-pro {
-  --background: #f1f5f9; /* Slate 100 - Softer than pure white */
-  --foreground: #334155; /* Slate 700 - Softer black */
-  --card: #ffffff;
-  --card-foreground: #334155;
-  --popover: #ffffff;
-  --popover-foreground: #334155;
-  --primary: #0ea5e9; /* Sky 500 - Slightly softer blue */
-  --primary-foreground: #f8fafc;
-  --secondary: #e2e8f0;
-  --secondary-foreground: #334155;
-  --muted: #e2e8f0;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0ea5e9;
-  --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: #cbd5e1;
-  --input: #cbd5e1;
-  --ring: #0ea5e9;
+  --background: #fdf6e3; /* Solarized Base3 (Cream) */
+  --foreground: #657b83; /* Solarized Base00 (Primary Text) */
+  --card: #eee8d5; /* Solarized Base2 (Lighter highlights) */
+  --card-foreground: #657b83;
+  --popover: #eee8d5;
+  --popover-foreground: #657b83;
+  --primary: #268bd2; /* Solarized Blue */
+  --primary-foreground: #fdf6e3;
+  --secondary: #eee8d5;
+  --secondary-foreground: #657b83;
+  --muted: #eee8d5;
+  --muted-foreground: #93a1a1; /* Base1 */
+  --accent: #eee8d5;
+  --accent-foreground: #268bd2;
+  --destructive: #dc322f; /* Solarized Red */
+  --destructive-foreground: #fdf6e3;
+  --border: #93a1a1;
+  --input: #93a1a1;
+  --ring: #268bd2;
 }
 
 /* VS Code Dark Theme */
