@@ -118,23 +118,23 @@
   --ring: #61afef;
 }
 
-/* One Light Pro Theme (Now Solarized Light) */
+/* One Light Pro Theme (Solarized High Contrast) */
 .one-light-pro {
-  --background: #fdf6e3; /* Solarized Base3 (Cream) */
-  --foreground: #657b83; /* Solarized Base00 (Primary Text) */
-  --card: #eee8d5; /* Solarized Base2 (Lighter highlights) */
-  --card-foreground: #657b83;
+  --background: #fdf6e3; /* Base3 (Cream) */
+  --foreground: #002b36; /* Base03 (Darkest Text) */
+  --card: #eee8d5;       /* Base2 */
+  --card-foreground: #002b36;
   --popover: #eee8d5;
-  --popover-foreground: #657b83;
-  --primary: #268bd2; /* Solarized Blue */
+  --popover-foreground: #002b36;
+  --primary: #268bd2;    /* Blue */
   --primary-foreground: #fdf6e3;
-  --secondary: #eee8d5;
-  --secondary-foreground: #657b83;
-  --muted: #eee8d5;
-  --muted-foreground: #93a1a1; /* Base1 */
+  --secondary: #d3dce6;  /* Custom Darker Secondary for visibility */
+  --secondary-foreground: #002b36;
+  --muted: #e0e6ed;      /* Custom Muted */
+  --muted-foreground: #586e75; /* Base01 (Darker Grey for muted text) */
   --accent: #eee8d5;
   --accent-foreground: #268bd2;
-  --destructive: #dc322f; /* Solarized Red */
+  --destructive: #dc322f;
   --destructive-foreground: #fdf6e3;
   --border: #93a1a1;
   --input: #93a1a1;
