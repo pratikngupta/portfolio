@@ -23,8 +23,9 @@ export default function NetworkParticles() {
     let mouse = { x: -1000, y: -1000 };
 
     // Theme Colors (Terminal Green)
-    const particleColor = "rgba(0, 255, 0, 0.5)";
-    const lineColor = "rgba(0, 255, 0, 0.15)";
+    // Theme Colors (Terminal Green) - Dimmed to reduce overload
+    const particleColor = "rgba(0, 255, 0, 0.3)";
+    const lineColor = "rgba(0, 255, 0, 0.1)";
     const connectionDistance = 150;
     const mouseDistance = 200;
 
