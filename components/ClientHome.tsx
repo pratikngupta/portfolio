@@ -43,7 +43,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    { name: "Writing", href: "https://pratik.webninja.me/blog" },
+    { name: "Writing", href: "/blog" },
   ];
 
   return (
@@ -231,7 +231,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
                   href="/projects"
                   className="inline-flex items-center font-semibold leading-tight text-foreground transition-all hover:text-primary group text-lg"
                 >
-                  View Full Project Archive{" "}
+                  View all Project{" "}
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>

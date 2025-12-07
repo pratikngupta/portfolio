@@ -71,6 +71,15 @@ export default function Experience({ experiences }: ExperienceProps) {
           ))}
         </ol>
       </div>
+      <div className="mt-12">
+        <Link
+          href="/experience"
+          className="inline-flex items-center font-semibold leading-tight text-foreground transition-all hover:text-primary group text-lg"
+        >
+          View all Experience{" "}
+          <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
     </section>
   );
 }
