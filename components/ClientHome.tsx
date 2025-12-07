@@ -44,6 +44,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Writing", href: "/blog" },
+    { name: "Resume", href: "/resume" },
   ];
 
   return (
