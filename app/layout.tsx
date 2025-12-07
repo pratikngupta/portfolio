@@ -3,6 +3,7 @@ import { Caveat } from "next/font/google";
 import "./globals.css";
 import NetworkParticles from "@/components/NetworkParticles";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import Terminal from "@/components/Terminal";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
@@ -56,6 +57,7 @@ export default function RootLayout({
           <NetworkParticles />
           <main className="flex-1">{children}</main>
           <SpeedInsights />
+          <Analytics />
           <Terminal />
         </ThemeProvider>
       </body>
