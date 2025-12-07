@@ -12,19 +12,19 @@
   --card-foreground: #e2e8f0;
   --popover: #0c0c0c;
   --popover-foreground: #e2e8f0;
-  --primary: #00ff00; /* Keep Neon Green for accents */
+  --primary: #00BFFF; /* Deep Sky Blue */
   --primary-foreground: #0c0c0c;
   --secondary: #1a1a1a;
   --secondary-foreground: #e2e8f0;
   --muted: #1a1a1a;
   --muted-foreground: #94a3b8; /* Slate 400 for muted text */
   --accent: #1a1a1a;
-  --accent-foreground: #00ff00;
+  --accent-foreground: #00BFFF;
   --destructive: #ff0000;
   --destructive-foreground: #0c0c0c;
   --border: #333333;
   --input: #333333;
-  --ring: #00ff00;
+  --ring: #00BFFF;
   --radius: 0px;
 }
 
