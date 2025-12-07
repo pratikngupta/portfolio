@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const blogDirectory = path.join(process.cwd(), "blog");
+const blogDirectory = path.join(process.cwd(), "data", "blog");
 
 export interface BlogPost {
   slug: string;
