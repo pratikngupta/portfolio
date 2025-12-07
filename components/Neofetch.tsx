@@ -94,55 +94,65 @@ export default function Neofetch() {
             </span>
             <span className="text-foreground whitespace-nowrap">zsh 5.9</span>
 
-            <span className="text-primary font-bold whitespace-nowrap self-center">
-              Theme:
+            <span className="text-primary font-bold whitespace-nowrap">
+              Shell:
             </span>
-            <div className="flex gap-2 items-center">
-              <button
-                onClick={() => setTheme("dark")}
-                className={`h-3 w-3 rounded-full bg-black border border-white/20 hover:scale-125 transition-all ${
-                  theme === "dark" || theme === "system"
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-black"
-                    : "opacity-50 hover:opacity-100"
-                }`}
-                title="Cyber Blue (Dark)"
-              ></button>
-              <button
-                onClick={() => setTheme("one-light-pro")}
-                className={`h-3 w-3 rounded-full bg-[#fdf6e3] border border-stone-300 hover:scale-125 transition-all ${
-                  theme === "one-light-pro"
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-black"
-                    : "opacity-50 hover:opacity-100"
-                }`}
-                title="Solarized Light"
-              ></button>
-              <button
-                onClick={() => setTheme("nord")}
-                className={`h-3 w-3 rounded-full bg-[#88c0d0] hover:scale-125 transition-all ${
-                  theme === "nord"
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-black"
-                    : "opacity-50 hover:opacity-100"
-                }`}
-                title="Nord"
-              ></button>
-              <button
-                onClick={() => setTheme("obsidian")}
-                className={`h-3 w-3 rounded-full bg-[#7b6cbd] hover:scale-125 transition-all ${
-                  theme === "obsidian"
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-black"
-                    : "opacity-50 hover:opacity-100"
-                }`}
-                title="Obsidian"
-              ></button>
-              <button
-                onClick={() => setTheme("vscode-modern-dark")}
-                className={`h-3 w-3 rounded-full bg-[#007acc] hover:scale-125 transition-all ${
-                  theme === "vscode-modern-dark"
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-black"
-                    : "opacity-50 hover:opacity-100"
-                }`}
-                title="VS Code Dark"
-              ></button>
+            <span className="text-foreground whitespace-nowrap">zsh 5.9</span>
+          </div>
+
+          {/* Prominent Theme Switcher Section */}
+          <div className="mt-8 pt-4 border-t border-dashed border-muted-foreground/30 w-full">
+            <div className="flex flex-col gap-3">
+              <span className="text-primary font-bold tracking-wide text-sm opacity-80">
+                [ Select System Theme ]
+              </span>
+              <div className="flex gap-4 items-center">
+                <button
+                  onClick={() => setTheme("dark")}
+                  className={`h-5 w-5 rounded-full bg-black border border-white/20 hover:scale-110 transition-all ${
+                    theme === "dark" || theme === "system"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                      : "opacity-60 hover:opacity-100"
+                  }`}
+                  title="Cyber Blue (Dark)"
+                ></button>
+                <button
+                  onClick={() => setTheme("one-light-pro")}
+                  className={`h-5 w-5 rounded-full bg-[#fdf6e3] border border-stone-300 hover:scale-110 transition-all ${
+                    theme === "one-light-pro"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                      : "opacity-60 hover:opacity-100"
+                  }`}
+                  title="Solarized Light"
+                ></button>
+                <button
+                  onClick={() => setTheme("nord")}
+                  className={`h-5 w-5 rounded-full bg-[#88c0d0] hover:scale-110 transition-all ${
+                    theme === "nord"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                      : "opacity-60 hover:opacity-100"
+                  }`}
+                  title="Nord"
+                ></button>
+                <button
+                  onClick={() => setTheme("obsidian")}
+                  className={`h-5 w-5 rounded-full bg-[#7b6cbd] hover:scale-110 transition-all ${
+                    theme === "obsidian"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                      : "opacity-60 hover:opacity-100"
+                  }`}
+                  title="Obsidian"
+                ></button>
+                <button
+                  onClick={() => setTheme("vscode-modern-dark")}
+                  className={`h-5 w-5 rounded-full bg-[#007acc] hover:scale-110 transition-all ${
+                    theme === "vscode-modern-dark"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                      : "opacity-60 hover:opacity-100"
+                  }`}
+                  title="VS Code Dark"
+                ></button>
+              </div>
             </div>
           </div>
         </div>
