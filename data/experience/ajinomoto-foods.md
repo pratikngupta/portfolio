@@ -1,5 +1,6 @@
 ---
 company: "Ajinomoto Foods North America"
+logo: "/logo/aj.png"
 title: "CO-OP Packaging Engineer"
 date: "May 2024 — April 2025"
 description: "Led the consolidation of over 26,000 packaging data points and identified over $150,000 in potential annual savings through corrugate case consolidation."

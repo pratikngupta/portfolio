@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2 } from "lucide-react";
 import { getAllExperiences } from "@/lib/experience";
 import Navbar from "@/components/Navbar";
 
@@ -33,11 +33,29 @@ export default function ExperienceIndex() {
                 </span>
               </div>
 
-              <div>
-                <h2 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                  {experience.title}
-                </h2>
-                <p className="font-medium text-primary">{experience.company}</p>
+              <div className="flex justify-between items-start gap-4">
+                <div className="flex-1">
+                  <h2 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {experience.title}
+                  </h2>
+                  <p className="font-medium text-primary mt-1">
+                    {experience.company}
+                  </p>
+                </div>
+                {experience.logo ? (
+                  <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl bg-muted/50 p-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={experience.logo}
+                      alt={`${experience.company} logo`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-muted">
+                    <Building2 className="h-6 w-6 text-muted-foreground" />
+                  </div>
+                )}
               </div>
 
               <p className="line-clamp-3 text-sm text-muted-foreground">

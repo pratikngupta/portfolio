@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import ThemeSelector from "@/components/ThemeSelector";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -47,22 +48,25 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile menu link placeholder or simple list for mobile */}
-        <div className="flex md:hidden gap-4 overflow-x-auto">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-xs font-medium px-1 py-0.5 whitespace-nowrap",
-                pathname === link.href
-                  ? "bg-primary text-background"
-                  : "text-muted-foreground"
-              )}
-            >
-              [{link.name}]
-            </Link>
-          ))}
+        <div className="flex items-center gap-4">
+          {/* Mobile menu link placeholder or simple list for mobile */}
+          <div className="flex md:hidden gap-4 overflow-x-auto">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-xs font-medium px-1 py-0.5 whitespace-nowrap",
+                  pathname === link.href
+                    ? "bg-primary text-background"
+                    : "text-muted-foreground"
+                )}
+              >
+                [{link.name}]
+              </Link>
+            ))}
+          </div>
+          <ThemeSelector />
         </div>
       </div>
     </nav>

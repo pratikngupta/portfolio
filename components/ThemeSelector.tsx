@@ -7,14 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const themes = [
-  { name: "Light", id: "light" },
-  { name: "Dark", id: "dark" },
+  { name: "Cyber Blue (Dark)", id: "dark" },
+  { name: "Solarized Light", id: "one-light-pro" },
   { name: "Nord", id: "nord" },
   { name: "Obsidian", id: "obsidian" },
-  { name: "One Dark Pro", id: "one-dark-pro" },
-  { name: "One Light Pro", id: "one-light-pro" },
   { name: "VS Code Dark", id: "vscode-modern-dark" },
-  { name: "VS Code Light", id: "vscode-light" },
 ];
 
 export default function ThemeSelector() {
@@ -55,7 +52,7 @@ export default function ThemeSelector() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute right-0 bottom-full mb-2 z-50 w-48 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-black"
+            className="absolute right-0 top-full mt-2 z-50 w-48 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-black"
           >
             <div className="flex flex-col p-2">
               <span className="mb-2 px-2 text-xs font-semibold uppercase text-neutral-500">

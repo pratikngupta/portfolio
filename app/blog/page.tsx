@@ -20,27 +20,58 @@ export default function BlogIndex() {
           </p>
         </div>
 
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col gap-4"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-muted bg-card transition-all hover:border-primary/50 hover:shadow-lg"
             >
-              <div className="aspect-[1.5] overflow-hidden rounded-2xl bg-muted">
-                {/* If we had real images, we'd use them here. For now a colored div */}
-                <div className="h-full w-full bg-gradient-to-br from-muted to-muted-foreground/20 transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <div>
-                <time className="text-sm text-muted-foreground">
-                  {post.date}
-                </time>
-                <h2 className="mt-2 text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+              {post.coverImage ? (
+                <div className="aspect-video w-full overflow-hidden bg-muted">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <div className="aspect-video w-full overflow-hidden bg-muted">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/blog-placeholder.png"
+                    alt="Blog post placeholder"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-2 flex items-center justify-between">
+                  <time className="text-xs text-muted-foreground">
+                    {post.date}
+                  </time>
+                </div>
+                <h2 className="mb-2 text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {post.title}
                 </h2>
-                <p className="mt-2 line-clamp-3 text-muted-foreground">
+                <p className="mb-4 line-clamp-2 text-sm text-muted-foreground flex-1">
                   {post.description}
                 </p>
+
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary capitalize"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </Link>
           ))}

@@ -37,7 +37,14 @@ export default function ProjectsIndex() {
                   />
                 </div>
               ) : (
-                <div className="aspect-video w-full bg-gradient-to-br from-muted to-muted-foreground/10" />
+                <div className="aspect-video w-full overflow-hidden bg-muted">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/project-placeholder.png"
+                    alt="Project placeholder"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               )}
 
               <div className="flex flex-1 flex-col p-6">

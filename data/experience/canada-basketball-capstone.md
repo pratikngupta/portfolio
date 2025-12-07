@@ -1,5 +1,6 @@
 ---
 company: "Canada Basketball"
+logo: ""
 title: "Software Developer & Product Owner"
 date: "May 2024 — Present"
 description: "Developing CourtSense, an automated system that uses computer vision to analyze 3x3 basketball gameplay from broadcast videos, providing strategic insights to coaches."

@@ -22,6 +22,28 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
   const [activeSection, setActiveSection] = useState("about");
   const [aboutCommand, setAboutCommand] = useState("");
   const [showAboutEditor, setShowAboutEditor] = useState(false);
+  const [connectCommand, setConnectCommand] = useState("");
+  const [showConnectLinks, setShowConnectLinks] = useState(false);
+
+  // Connect Command Animation
+  useEffect(() => {
+    // Delay start slightly to let page load
+    const timeout = setTimeout(() => {
+      const cmd = "./connect.sh";
+      let i = 0;
+      const interval = setInterval(() => {
+        setConnectCommand(cmd.slice(0, i + 1));
+        i++;
+        if (i > cmd.length) {
+          clearInterval(interval);
+          setShowConnectLinks(true);
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }, 2000); // Start after 2 seconds (after about animation starts)
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const cmd = "vim about.txt";
@@ -110,41 +132,51 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
               </nav>
             </div>
 
-            <div>
-              <div className="mb-4 text-xs font-mono text-muted-foreground">
-                <span className="text-primary">$</span> ./connect.sh
+            <div className="mt-16">
+              <div className="mb-6 text-xl font-bold font-mono text-foreground min-h-[32px] flex items-center">
+                <span className="text-primary mr-3">$</span>
+                {connectCommand}
+                <span
+                  className={cn(
+                    "inline-block w-3 h-6 bg-primary ml-2",
+                    showConnectLinks ? "animate-pulse" : "animate-bounce"
+                  )}
+                ></span>
               </div>
               <ul
-                className="ml-1 flex items-center gap-5"
+                className={cn(
+                  "ml-1 flex items-center gap-5 transition-opacity duration-1000",
+                  showConnectLinks ? "opacity-100" : "opacity-0"
+                )}
                 aria-label="Social media"
               >
                 <li>
                   <Link
                     href={portfolioData.social.github}
                     target="_blank"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110 block"
                   >
                     <span className="sr-only">GitHub</span>
-                    <Github className="h-6 w-6" />
+                    <Github className="h-7 w-7" />
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={portfolioData.social.linkedin}
                     target="_blank"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110 block"
                   >
                     <span className="sr-only">LinkedIn</span>
-                    <Linkedin className="h-6 w-6" />
+                    <Linkedin className="h-7 w-7" />
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={portfolioData.social.email}
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110 block"
                   >
                     <span className="sr-only">Email</span>
-                    <Mail className="h-6 w-6" />
+                    <Mail className="h-7 w-7" />
                   </Link>
                 </li>
                 {/* <li>

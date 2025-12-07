@@ -7,6 +7,7 @@ const experiencesDirectory = path.join(process.cwd(), "data", "experience");
 export interface Experience {
   slug: string;
   company: string;
+  logo?: string;
   title: string;
   date: string;
   description: string;
@@ -32,22 +33,22 @@ export function getAllExperiences(): Experience[] {
       return {
         slug,
         company: data.company,
+        logo: data.logo,
         title: data.title,
-        date: data.date,
+        date: data.date || "",
         description: data.description,
         tags: data.tags || [],
         link: data.link,
         content,
       } as Experience;
     })
-    // Sort logic handled implicitly or strictly by a date field if needed.
-    // Given the previous list was manual, we might want to ensure order.
-    // For now, let's assume filename or date sort. 
-    // Let's sort by date "Present" first, then newest.
     .sort((a, b) => {
         // Simple heuristic: if 'Present' in date, it comes first
-        const aIsPresent = a.date.includes("Present");
-        const bIsPresent = b.date.includes("Present");
+        const dateA = a.date || "";
+        const dateB = b.date || "";
+        const aIsPresent = dateA.includes("Present");
+        const bIsPresent = dateB.includes("Present");
+        
         if (aIsPresent && !bIsPresent) return -1;
         if (!aIsPresent && bIsPresent) return 1;
         
@@ -70,6 +71,7 @@ export function getExperienceBySlug(slug: string): Experience | undefined {
   return {
     slug,
     company: data.company,
+    logo: data.logo,
     title: data.title,
     date: data.date,
     description: data.description,
