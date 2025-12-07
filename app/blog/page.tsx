@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
 
 export default function BlogIndex() {
@@ -7,7 +8,14 @@ export default function BlogIndex() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Home
+        </Link>
+        <h1 className="font-handwriting text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Blog
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">

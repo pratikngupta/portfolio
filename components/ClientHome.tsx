@@ -8,22 +8,16 @@ import Experience from "@/components/Experience";
 import ThemeSelector from "@/components/ThemeSelector";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { BlogPost } from "@/lib/blog";
 import { Project } from "@/lib/projects";
 import portfolioData from "@/data/portfolio.json";
 import type { Experience as ExperienceType } from "@/lib/experience";
 
 interface ClientHomeProps {
-  posts: BlogPost[];
   projects: Project[];
   experiences: ExperienceType[];
 }
 
-export default function ClientHome({
-  posts,
-  projects,
-  experiences,
-}: ClientHomeProps) {
+export default function ClientHome({ projects, experiences }: ClientHomeProps) {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
@@ -49,7 +43,7 @@ export default function ClientHome({
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    { name: "Writing", href: "#writing" },
+    { name: "Writing", href: "https://pratik.webninja.me/blog" },
   ];
 
   return (
@@ -87,11 +81,13 @@ export default function ClientHome({
                             : "text-muted-foreground hover:text-foreground"
                         )}
                         onClick={(e) => {
-                          e.preventDefault();
-                          document.querySelector(link.href)?.scrollIntoView({
-                            behavior: "smooth",
-                          });
-                          setActiveSection(link.href.substring(1));
+                          if (link.href.startsWith("#")) {
+                            e.preventDefault();
+                            document.querySelector(link.href)?.scrollIntoView({
+                              behavior: "smooth",
+                            });
+                            setActiveSection(link.href.substring(1));
+                          }
                         }}
                       >
                         <span
@@ -238,43 +234,6 @@ export default function ClientHome({
                   View Full Project Archive{" "}
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-              </div>
-            </section>
-
-            {/* Writing Section */}
-            <section
-              id="writing"
-              className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-              aria-label="Blog posts"
-            >
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/80 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0">
-                <h2 className="font-handwriting text-3xl font-bold text-primary lg:text-4xl">
-                  Writing
-                </h2>
-              </div>
-              <div className="group/list">
-                {posts.map((post) => (
-                  <Link
-                    key={post.slug}
-                    href={`/blog/${post.slug}`}
-                    className="group/item relative mb-8 flex flex-col gap-4 pb-4 transition-all hover:!opacity-100 group-hover/list:opacity-50 sm:flex-row"
-                  >
-                    <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-100/50 dark:lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-
-                    <div className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2 whitespace-nowrap">
-                      {new Date(post.date).getFullYear()}
-                    </div>
-                    <div className="z-10 sm:col-span-6">
-                      <h3 className="font-medium leading-snug text-foreground">
-                        <div className="inline-flex items-baseline font-medium leading-tight text-foreground hover:text-primary group-hover/item:text-primary transition-colors">
-                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                          {post.title}
-                          <ArrowRight className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/item:translate-x-1 motion-reduce:transition-none" />
-                        </div>
-                      </h3>
-                    </div>
-                  </Link>
-                ))}
               </div>
             </section>
 

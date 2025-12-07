@@ -23,13 +23,13 @@ The repository is organized into two main directories:
 ```mermaid
 graph TB
     %% External Access
-    User([User Devices])
-    Internet((Internet))
+    User([fa:fa-user User Devices])
+    Internet((fa:fa-globe Internet))
 
     subgraph Gateways [Network Entry]
         direction TB
-        Cloudflare[Cloudflare Tunnel]
-        Tailscale[Tailscale VPN]
+        Cloudflare[fa:fa-cloud Cloudflare Tunnel]
+        Tailscale[fa:fa-network-wired Tailscale VPN]
     end
 
     User --> Internet
@@ -41,41 +41,41 @@ graph TB
 
         subgraph HP_Node [HP Node: Utility & Security]
             direction TB
-            Traefik_HP[Traefik Proxy]
+            Traefik_HP[fa:fa-route Traefik Proxy]
 
             subgraph Security [Security & Network]
-                Crowdsec
-                Vault
-                Monitoring_HP[Monitoring]
+                Crowdsec[fa:fa-shield-alt Crowdsec]
+                Vault[fa:fa-key Vault]
+                Monitoring_HP[fa:fa-chart-line Monitoring]
             end
 
             subgraph Apps_HP [Applications]
-                Searxng
-                Obsidian
-                Overleaf
-                SmartHome_HP[Smart Home Backend]
+                Searxng[fa:fa-search Searxng]
+                Obsidian[fa:fa-file-alt Obsidian]
+                Overleaf[fa:fa-pen-fancy Overleaf]
+                SmartHome_HP[fa:fa-home Smart Home Backend]
             end
         end
 
         subgraph NVIDIA_Node [NVIDIA Node: Media & Power]
             direction TB
-            Traefik_NV[Traefik Proxy]
+            Traefik_NV[fa:fa-route Traefik Proxy]
 
             subgraph Media [Media Center]
-                SmartMedia[Plex/Jellyfin/Arr]
-                Immich[Photos]
-                Bezel
+                SmartMedia[fa:fa-film Plex/Jellyfin/Arr]
+                Immich[fa:fa-images Immich]
+                Bezel[fa:fa-mobile-alt Bezel]
             end
 
             subgraph Productivity [Productivity & Data]
-                Nextcloud
-                N8N[Automation]
-                DB[Databases]
+                Nextcloud[fa:fa-cloud Nextcloud]
+                N8N[fa:fa-project-diagram N8N]
+                DB[fa:fa-database Databases]
             end
 
             subgraph HomeAuto [Home Automation]
-                HA[Home Assistant]
-                Dashboard
+                HA[fa:fa-home Home Assistant]
+                Dashboard[fa:fa-columns Dashboard]
             end
         end
     end
