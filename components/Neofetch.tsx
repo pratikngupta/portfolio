@@ -93,11 +93,6 @@ export default function Neofetch() {
               Shell:
             </span>
             <span className="text-foreground whitespace-nowrap">zsh 5.9</span>
-
-            <span className="text-primary font-bold whitespace-nowrap">
-              Shell:
-            </span>
-            <span className="text-foreground whitespace-nowrap">zsh 5.9</span>
           </div>
 
           {/* Prominent Theme Switcher Section */}
