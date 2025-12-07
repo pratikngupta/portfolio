@@ -124,10 +124,10 @@ export default function NetworkParticles() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none select-none bg-[#0c0c0c]">
+    <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none select-none bg-background transition-colors duration-300">
       <canvas ref={canvasRef} className="absolute inset-0" />
       {/* Optional Gradient Overlay for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,12,12,0.8)_100%)]"></div>
+      {/* Optional Gradient Overlay removed for cleaner light mode */}
     </div>
   );
 }
