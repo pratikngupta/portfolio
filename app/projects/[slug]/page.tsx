@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import Mermaid from "@/components/Mermaid";
 
 interface PageProps {
   params: Promise<{
@@ -35,7 +36,7 @@ export default async function ProjectPage({ params }: PageProps) {
         Back to Projects
       </Link>
 
-      <article className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+      <article className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:text-primary prose-code:bg-primary/10 prose-code:rounded prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none">
         <h1 className="font-handwriting text-5xl mb-4">{project.title}</h1>
 
         <p className="lead text-xl text-muted-foreground mb-6">
@@ -91,7 +92,24 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
         )}
 
-        <ReactMarkdown>{project.content}</ReactMarkdown>
+        <ReactMarkdown
+          components={{
+            code(props) {
+              const { children, className, node, ...rest } = props;
+              const match = /language-(\w+)/.exec(className || "");
+              if (match && match[1] === "mermaid") {
+                return <Mermaid chart={String(children).replace(/\n$/, "")} />;
+              }
+              return (
+                <code className={className} {...rest}>
+                  {children}
+                </code>
+              );
+            },
+          }}
+        >
+          {project.content}
+        </ReactMarkdown>
       </article>
     </div>
   );

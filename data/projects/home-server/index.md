@@ -21,38 +21,78 @@ The repository is organized into two main directories:
 ## Architecture Diagram
 
 ```mermaid
-graph TD
-    subgraph HP [HP Node - Utility & Security]
+graph TB
+    %% External Access
+    User([User Devices])
+    Internet((Internet))
+
+    subgraph Gateways [Network Entry]
         direction TB
-        Traefik_HP[Traefik]
         Cloudflare[Cloudflare Tunnel]
-        Crowdsec[Crowdsec]
-        Vault[Vault]
-        Monitoring_HP[Monitoring Stack]
-        Obsidian[Obsidian Sync]
-        Overleaf[Overleaf]
-        Searxng[SearxNG]
-        SmartHome[Smart Home]
-    end
-
-    subgraph NVIDIA [NVIDIA Node - Media & Apps]
-        direction TB
-        Traefik_NV[Traefik]
-        HomeAssistant[Home Assistant]
-        SmartMedia[Smart Media Stack]
-        Immich[Immich]
-        Nextcloud[Nextcloud]
-        N8N[n8n]
-        OpenUI[OpenUI]
         Tailscale[Tailscale VPN]
-        Monitoring_NV[Monitoring Stack]
-        DB[Databases]
-        Dashboard[Dashboard]
-        Utils_NV[Utilities: bezel, scrobble, share, photo, onedrive]
     end
 
-    User((User)) --> Traefik_HP
-    User --> Traefik_NV
+    User --> Internet
+    Internet --> Cloudflare
+    User -.-> Tailscale
+
+    subgraph HomeServer [Home Server Infrastructure]
+        direction TB
+
+        subgraph HP_Node [HP Node: Utility & Security]
+            direction TB
+            Traefik_HP[Traefik Proxy]
+
+            subgraph Security [Security & Network]
+                Crowdsec
+                Vault
+                Monitoring_HP[Monitoring]
+            end
+
+            subgraph Apps_HP [Applications]
+                Searxng
+                Obsidian
+                Overleaf
+                SmartHome_HP[Smart Home Backend]
+            end
+        end
+
+        subgraph NVIDIA_Node [NVIDIA Node: Media & Power]
+            direction TB
+            Traefik_NV[Traefik Proxy]
+
+            subgraph Media [Media Center]
+                SmartMedia[Plex/Jellyfin/Arr]
+                Immich[Photos]
+                Bezel
+            end
+
+            subgraph Productivity [Productivity & Data]
+                Nextcloud
+                N8N[Automation]
+                DB[Databases]
+            end
+
+            subgraph HomeAuto [Home Automation]
+                HA[Home Assistant]
+                Dashboard
+            end
+        end
+    end
+
+    %% Network Routing
+    Cloudflare --> Traefik_HP
+    Tailscale --> Traefik_NV
+
+    Traefik_HP --> Security
+    Traefik_HP --> Apps_HP
+
+    Traefik_NV --> Media
+    Traefik_NV --> Productivity
+    Traefik_NV --> HomeAuto
+
+    %% Cross-Server Communication (Conceptual)
+    HP_Node -.-> NVIDIA_Node
 ```
 
 ## Services (Compose)
