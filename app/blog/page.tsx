@@ -13,7 +13,8 @@ export default function BlogIndex() {
         <div className="mb-16">
           <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             <span className="text-muted-foreground mr-2">$</span>
-            cat blog_posts.txt
+            <span className="text-primary mr-2">cat</span>
+            <span className="text-foreground">blog_posts.txt</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Thoughts on development, design, and everything in between.

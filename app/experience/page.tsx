@@ -13,7 +13,8 @@ export default function ExperienceIndex() {
         <div className="mb-16">
           <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             <span className="text-muted-foreground mr-2">$</span>
-            history | grep experience
+            <span className="text-primary mr-2">history</span>
+            <span className="text-foreground">| grep experience</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             My professional journey and career highlights.

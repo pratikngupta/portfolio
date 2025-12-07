@@ -13,7 +13,8 @@ export default function ProjectsIndex() {
         <div className="mb-16">
           <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             <span className="text-muted-foreground mr-2">$</span>
-            ls -R projects/
+            <span className="text-primary mr-2">ls</span>
+            <span className="text-foreground">-R projects/</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             A collection of things I've built.
