@@ -5,7 +5,6 @@ import NetworkParticles from "@/components/NetworkParticles";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import Terminal from "@/components/Terminal";
-import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
-import BackgroundGrid from "@/components/BackgroundGrid";
 import Spotlight from "@/components/Spotlight";
 import Experience from "@/components/Experience";
 import ThemeSelector from "@/components/ThemeSelector";

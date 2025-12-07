@@ -20,6 +20,29 @@ export default function Neofetch() {
     updateUptime();
   }, []);
 
+  const THEMES = [
+    {
+      name: "dark",
+      color: "bg-black",
+      border: "border-white/20",
+      title: "Cyber Blue (Dark)",
+    },
+    {
+      name: "one-light-pro",
+      color: "bg-[#fdf6e3]",
+      border: "border-stone-300",
+      title: "Solarized Light",
+    },
+    { name: "nord", color: "bg-[#88c0d0]", border: "", title: "Nord" },
+    { name: "obsidian", color: "bg-[#7b6cbd]", border: "", title: "Obsidian" },
+    {
+      name: "vscode-modern-dark",
+      color: "bg-[#007acc]",
+      border: "",
+      title: "VS Code Dark",
+    },
+  ];
+
   return (
     <div className="font-mono text-sm text-muted-foreground select-none">
       <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center xl:items-center text-base">
@@ -27,18 +50,22 @@ export default function Neofetch() {
         <div className="relative shrink-0">
           <div className="h-32 w-32 xl:h-48 xl:w-48 overflow-hidden rounded-full border-4 border-muted bg-muted shadow-2xl">
             {/* Make sure to add your photo as 'public/profile.png' */}
-            <img
+            <Image
               src="/profile.png"
               alt="Pratik Gupta"
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 128px, 192px"
+              priority
               onError={(e) => {
-                e.currentTarget.style.display = "none";
-                e.currentTarget.parentElement!.classList.add(
+                const target = e.currentTarget as HTMLImageElement;
+                target.style.display = "none";
+                target.parentElement!.classList.add(
                   "flex",
                   "items-center",
                   "justify-center"
                 );
-                e.currentTarget.parentElement!.innerHTML = `<span class="text-xs text-center p-2">Add profile.png to public/</span>`;
+                target.parentElement!.innerHTML = `<span class="text-xs text-center p-2">Add profile.png to public/</span>`;
               }}
             />
           </div>
@@ -104,64 +131,29 @@ export default function Neofetch() {
                 [ Select System Theme ]
               </span>
               <div className="flex gap-4 items-center">
-                {mounted ? (
-                  <>
-                    <button
-                      onClick={() => setTheme("dark")}
-                      className={`h-5 w-5 rounded-full bg-black border border-white/20 hover:scale-110 transition-all ${
-                        theme === "dark" || theme === "system"
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                          : "opacity-60 hover:opacity-100"
-                      }`}
-                      title="Cyber Blue (Dark)"
-                    />
-                    <button
-                      onClick={() => setTheme("one-light-pro")}
-                      className={`h-5 w-5 rounded-full bg-[#fdf6e3] border border-stone-300 hover:scale-110 transition-all ${
-                        theme === "one-light-pro"
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                          : "opacity-60 hover:opacity-100"
-                      }`}
-                      title="Solarized Light"
-                    />
-                    <button
-                      onClick={() => setTheme("nord")}
-                      className={`h-5 w-5 rounded-full bg-[#88c0d0] hover:scale-110 transition-all ${
-                        theme === "nord"
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                          : "opacity-60 hover:opacity-100"
-                      }`}
-                      title="Nord"
-                    />
-                    <button
-                      onClick={() => setTheme("obsidian")}
-                      className={`h-5 w-5 rounded-full bg-[#7b6cbd] hover:scale-110 transition-all ${
-                        theme === "obsidian"
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                          : "opacity-60 hover:opacity-100"
-                      }`}
-                      title="Obsidian"
-                    />
-                    <button
-                      onClick={() => setTheme("vscode-modern-dark")}
-                      className={`h-5 w-5 rounded-full bg-[#007acc] hover:scale-110 transition-all ${
-                        theme === "vscode-modern-dark"
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                          : "opacity-60 hover:opacity-100"
-                      }`}
-                      title="VS Code Dark"
-                    />
-                  </>
-                ) : (
-                  /* Skeleton / Loading state to match structure but neutral style */
-                  <>
-                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
-                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
-                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
-                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
-                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
-                  </>
-                )}
+                {mounted
+                  ? THEMES.map((t) => (
+                      <button
+                        key={t.name}
+                        onClick={() => setTheme(t.name)}
+                        className={`h-5 w-5 rounded-full ${t.color} ${
+                          t.border
+                        } hover:scale-110 transition-all ${
+                          theme === t.name ||
+                          (t.name === "dark" && theme === "system")
+                            ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                            : "opacity-60 hover:opacity-100"
+                        }`}
+                        title={t.title}
+                      />
+                    ))
+                  : /* Skeleton / Loading state to match structure but neutral style */
+                    Array.from({ length: 5 }).map((_, i) => (
+                      <div
+                        key={i}
+                        className="h-5 w-5 rounded-full bg-muted/20 border border-muted"
+                      />
+                    ))}
               </div>
             </div>
           </div>
