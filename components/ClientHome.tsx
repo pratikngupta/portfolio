@@ -66,8 +66,9 @@ export default function ClientHome({
                 Software Engineer & AI Enthusiast
               </h2>
               <p className="mt-4 max-w-xs leading-normal text-muted-foreground">
-                I build pixel-perfect, engaging, and accessible digital
-                experiences.
+                I am passionate about leveraging cloud-native technologies and
+                advanced AI to drive innovation and solve complex,
+                data-intensive problems.
               </p>
 
               <nav

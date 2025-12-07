@@ -6,9 +6,10 @@ const nextConfig: NextConfig = {
     unoptimized: true, // <=== Required for static export (unless using a cloud loader)
   },
   /* 
-   * IF deploying to a sub-path (e.g. pratikngupta.github.io/portfolio), uncomment below:
+   * Set basePath only for GitHub Pages deployment
+   * This fixes local preview (npx serve out) by not enforcing the path locally
    */
-  basePath: "/portfolio",
+  basePath: process.env.GITHUB_ACTIONS ? "/portfolio" : undefined,
 };
 
 export default nextConfig;

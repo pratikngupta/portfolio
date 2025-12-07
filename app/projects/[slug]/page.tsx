@@ -26,78 +26,73 @@ export default async function ProjectPage({ params }: PageProps) {
   }
 
   return (
-    <article className="mx-auto max-w-4xl px-4 py-24 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-6 py-24 sm:px-6 lg:px-8">
       <Link
         href="/#projects"
-        className="mb-8 inline-flex items-center text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+        className="group mb-8 inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
       >
-        <ArrowLeft className="mr-2 h-4 w-4" />
+        <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
         Back to Projects
       </Link>
 
-      <header className="mb-12">
-        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-              {project.title}
-            </h1>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.tags?.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+      <article className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+        <h1 className="font-handwriting text-5xl mb-4">{project.title}</h1>
 
-          <div className="flex gap-4">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-6 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:bg-black dark:hover:bg-neutral-900"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                View Code
-              </a>
-            )}
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-neutral-900 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
-              >
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Live Demo
-              </a>
-            )}
-          </div>
-        </div>
-
-        <p className="mt-8 text-xl text-neutral-600 dark:text-neutral-300">
+        <p className="lead text-xl text-muted-foreground mb-6">
           {project.description}
         </p>
-      </header>
 
-      {project.coverImage && (
-        <div className="mb-12 overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.coverImage}
-            alt={project.title}
-            className="w-full object-cover"
-          />
+        {/* Buttons Row */}
+        <div className="flex flex-wrap gap-4 mb-8 not-prose">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary hover:bg-primary/20 transition-colors"
+            >
+              <Github className="mr-2 h-4 w-4" />
+              View Code
+            </a>
+          )}
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              <ExternalLink className="mr-2 h-4 w-4" />
+              Live Demo
+            </a>
+          )}
         </div>
-      )}
 
-      <div className="prose prose-lg prose-neutral dark:prose-invert max-w-none">
+        {/* Tags Row */}
+        <div className="flex flex-wrap gap-2 mb-8 not-prose">
+          {project.tags?.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium leading-5 text-primary"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {project.coverImage && (
+          <div className="mb-12 overflow-hidden rounded-3xl border border-border">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="w-full object-cover"
+            />
+          </div>
+        )}
+
         <ReactMarkdown>{project.content}</ReactMarkdown>
-      </div>
-    </article>
+      </article>
+    </div>
   );
 }
