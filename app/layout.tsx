@@ -4,7 +4,6 @@ import "./globals.css";
 import NetworkParticles from "@/components/NetworkParticles";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Terminal from "@/components/Terminal";
-import MobileCommandBar from "@/components/MobileCommandBar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -55,10 +54,9 @@ export default function RootLayout({
           ]}
         >
           <NetworkParticles />
-          <main className="flex-1 pb-24 lg:pb-0">{children}</main>
+          <main className="flex-1">{children}</main>
           <SpeedInsights />
           <Terminal />
-          <MobileCommandBar />
         </ThemeProvider>
       </body>
     </html>
