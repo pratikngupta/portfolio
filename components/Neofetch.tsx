@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export default function Neofetch() {
   const [uptime, setUptime] = useState<string>("0h 0m");
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     const start = new Date("2024-01-01").getTime();
@@ -89,16 +91,33 @@ export default function Neofetch() {
             <span className="text-white whitespace-nowrap">zsh 5.9</span>
           </div>
 
-          {/* Color Palette Strip */}
+          {/* Color Palette Strip (Theme Switcher) */}
           <div className="mt-4 flex gap-2">
-            <div className="h-3 w-3 rounded-full bg-black border border-white/20"></div>
-            <div className="h-3 w-3 rounded-full bg-red-500"></div>
-            <div className="h-3 w-3 rounded-full bg-green-500"></div>
-            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-            <div className="h-3 w-3 rounded-full bg-blue-500"></div>
-            <div className="h-3 w-3 rounded-full bg-magenta-500"></div>
-            <div className="h-3 w-3 rounded-full bg-cyan-500"></div>
-            <div className="h-3 w-3 rounded-full bg-white"></div>
+            <button
+              onClick={() => setTheme("dark")}
+              className="h-3 w-3 rounded-full bg-black border border-white/20 hover:scale-125 transition-transform"
+              title="Cyber Blue (Dark)"
+            ></button>
+            <button
+              onClick={() => setTheme("one-light-pro")}
+              className="h-3 w-3 rounded-full bg-slate-200 hover:scale-125 transition-transform"
+              title="Light Mode"
+            ></button>
+            <button
+              onClick={() => setTheme("nord")}
+              className="h-3 w-3 rounded-full bg-[#88c0d0] hover:scale-125 transition-transform"
+              title="Nord"
+            ></button>
+            <button
+              onClick={() => setTheme("obsidian")}
+              className="h-3 w-3 rounded-full bg-[#7b6cbd] hover:scale-125 transition-transform"
+              title="Obsidian"
+            ></button>
+            <button
+              onClick={() => setTheme("vscode-modern-dark")}
+              className="h-3 w-3 rounded-full bg-[#007acc] hover:scale-125 transition-transform"
+              title="VS Code Dark"
+            ></button>
           </div>
         </div>
       </div>
