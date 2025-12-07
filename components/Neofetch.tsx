@@ -59,36 +59,40 @@ export default function Neofetch() {
             <span className="text-primary font-bold whitespace-nowrap">
               Role:
             </span>
-            <span className="text-white whitespace-nowrap">
+            <span className="text-foreground whitespace-nowrap">
               Software Engineer
             </span>
 
             <span className="text-primary font-bold whitespace-nowrap">
               Focus:
             </span>
-            <span className="text-white whitespace-nowrap">
+            <span className="text-foreground whitespace-nowrap">
               Cloud-Native & AI
             </span>
 
             <span className="text-primary font-bold whitespace-nowrap">
               Passion:
             </span>
-            <span className="text-white whitespace-nowrap">Innovation</span>
+            <span className="text-foreground whitespace-nowrap">
+              Innovation
+            </span>
 
             <span className="text-primary font-bold whitespace-nowrap">
               Problem_Solving:
             </span>
-            <span className="text-white whitespace-nowrap">Data-Intensive</span>
+            <span className="text-foreground whitespace-nowrap">
+              Data-Intensive
+            </span>
 
             <span className="text-primary font-bold whitespace-nowrap">
               Uptime:
             </span>
-            <span className="text-white whitespace-nowrap">{uptime}</span>
+            <span className="text-foreground whitespace-nowrap">{uptime}</span>
 
             <span className="text-primary font-bold whitespace-nowrap">
               Shell:
             </span>
-            <span className="text-white whitespace-nowrap">zsh 5.9</span>
+            <span className="text-foreground whitespace-nowrap">zsh 5.9</span>
           </div>
 
           {/* Color Palette Strip (Theme Switcher) */}

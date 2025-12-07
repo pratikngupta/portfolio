@@ -118,27 +118,27 @@
   --ring: #61afef;
 }
 
-/* One Light Pro Theme */
+/* One Light Pro Theme (Softened) */
 .one-light-pro {
-  --background: #fafafa;
-  --foreground: #383a42;
+  --background: #f1f5f9; /* Slate 100 - Softer than pure white */
+  --foreground: #334155; /* Slate 700 - Softer black */
   --card: #ffffff;
-  --card-foreground: #383a42;
+  --card-foreground: #334155;
   --popover: #ffffff;
-  --popover-foreground: #383a42;
-  --primary: #4078f2; /* Blue */
-  --primary-foreground: #fafafa;
-  --secondary: #e5e5e6;
-  --secondary-foreground: #383a42;
-  --muted: #e5e5e6;
-  --muted-foreground: #a0a1a7;
-  --accent: #f0f0f1;
-  --accent-foreground: #4078f2;
-  --destructive: #e45649;
-  --destructive-foreground: #fafafa;
-  --border: #e5e5e6;
-  --input: #e5e5e6;
-  --ring: #4078f2;
+  --popover-foreground: #334155;
+  --primary: #0ea5e9; /* Sky 500 - Slightly softer blue */
+  --primary-foreground: #f8fafc;
+  --secondary: #e2e8f0;
+  --secondary-foreground: #334155;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0ea5e9;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #cbd5e1;
+  --input: #cbd5e1;
+  --ring: #0ea5e9;
 }
 
 /* VS Code Dark Theme */
