@@ -67,7 +67,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
 
   return (
     <Spotlight className="min-h-screen bg-transparent text-muted-foreground selection:bg-primary selection:text-primary-foreground">
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-12 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           {/* LEFT COLUMN (Fixed) */}
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
@@ -181,7 +181,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
 
               <div
                 className={cn(
-                  "overflow-hidden rounded-md border border-muted bg-card shadow-sm font-mono text-sm transition-all duration-700 ease-out",
+                  "overflow-hidden rounded-md border border-muted bg-black/50 backdrop-blur-md shadow-sm font-mono text-sm transition-all duration-700 ease-out",
                   showAboutEditor
                     ? "opacity-100 max-h-[1000px] translate-y-0"
                     : "opacity-0 max-h-0 -translate-y-4"
@@ -252,9 +252,14 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
             >
               <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/95 px-6 py-5 border-b border-primary/20 md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:border-none lg:backdrop-blur-none">
                 <h2 className="text-2xl font-bold text-primary lg:text-3xl">
-                  <span className="text-muted-foreground mr-2">$</span>
-                  <span className="mr-2">ls</span>
-                  <span className="text-foreground">-la projects/</span>
+                  <Link
+                    href="/projects"
+                    className="hover:underline hover:text-primary transition-colors"
+                  >
+                    <span className="text-muted-foreground mr-2">$</span>
+                    <span className="mr-2">ls</span>
+                    <span className="text-foreground">-la projects/</span>
+                  </Link>
                 </h2>
               </div>
               <div className="group/list">

@@ -18,10 +18,10 @@ export default function Neofetch() {
 
   return (
     <div className="font-mono text-sm text-muted-foreground select-none">
-      <div className="flex flex-col xl:flex-row gap-6 items-start">
+      <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center xl:items-center text-base">
         {/* Photo / Logo */}
         <div className="relative shrink-0">
-          <div className="h-32 w-32 xl:h-40 xl:w-40 overflow-hidden rounded-full border-2 border-primary/50 bg-muted">
+          <div className="h-32 w-32 xl:h-48 xl:w-48 overflow-hidden rounded-full border-4 border-muted bg-muted shadow-2xl">
             {/* Make sure to add your photo as 'public/profile.png' */}
             <img
               src="/profile.png"
@@ -41,44 +41,52 @@ export default function Neofetch() {
         </div>
 
         {/* Info Map */}
-        <div className="flex flex-col justify-center gap-1 w-full">
-          <div className="flex gap-2 text-base xl:text-lg">
-            <span className="text-primary font-bold">pratik</span>
-            <span className="text-muted-foreground">@</span>
-            <span className="text-primary font-bold">portfolio</span>
+        <div className="flex flex-col justify-center gap-2 w-full pt-4 items-center xl:items-start">
+          <div className="flex flex-col gap-1 items-center xl:items-start">
+            <div className="flex gap-1 text-lg xl:text-xl tracking-wide">
+              <span className="text-primary font-bold">pratik</span>
+              <span className="text-muted-foreground">@</span>
+              <span className="text-primary font-bold">portfolio</span>
+            </div>
+            <div className="text-muted-foreground font-mono leading-none">
+              ---------------------------
+            </div>
           </div>
-          <div className="h-px w-full bg-muted-foreground/30 my-1" />
 
-          <div className="grid grid-cols-[min-content_1fr] gap-x-4 gap-y-1">
+          <div className="grid grid-cols-[min-content_1fr] gap-x-4 gap-y-1 w-fit">
             <span className="text-cyan-400 font-bold whitespace-nowrap">
               Role:
             </span>
-            <span className="text-white">Software Engineer</span>
+            <span className="text-white whitespace-nowrap">
+              Software Engineer
+            </span>
 
             <span className="text-cyan-400 font-bold whitespace-nowrap">
               Focus:
             </span>
-            <span className="text-white">Cloud-Native & AI</span>
+            <span className="text-white whitespace-nowrap">
+              Cloud-Native & AI
+            </span>
 
             <span className="text-cyan-400 font-bold whitespace-nowrap">
               Passion:
             </span>
-            <span className="text-white">Innovation</span>
+            <span className="text-white whitespace-nowrap">Innovation</span>
 
             <span className="text-cyan-400 font-bold whitespace-nowrap">
               Problem_Solving:
             </span>
-            <span className="text-white">Data-Intensive</span>
+            <span className="text-white whitespace-nowrap">Data-Intensive</span>
 
             <span className="text-cyan-400 font-bold whitespace-nowrap">
               Uptime:
             </span>
-            <span className="text-white">{uptime}</span>
+            <span className="text-white whitespace-nowrap">{uptime}</span>
 
             <span className="text-cyan-400 font-bold whitespace-nowrap">
               Shell:
             </span>
-            <span className="text-white">zsh 5.9</span>
+            <span className="text-white whitespace-nowrap">zsh 5.9</span>
           </div>
 
           {/* Color Palette Strip */}

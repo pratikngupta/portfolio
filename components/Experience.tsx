@@ -15,9 +15,14 @@ export default function Experience({ experiences }: ExperienceProps) {
     >
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/95 px-6 py-5 border-b border-primary/20 md:-mx-12 md:px-12 lg:static lg:auto lg:mx-0 lg:w-auto lg:bg-transparent lg:px-0 lg:py-0 lg:border-none lg:backdrop-blur-none">
         <h2 className="text-2xl font-bold text-primary lg:text-3xl">
-          <span className="text-muted-foreground mr-2">$</span>
-          <span className="mr-2">history</span>
-          <span className="text-foreground">| grep experience</span>
+          <Link
+            href="/experience"
+            className="hover:underline hover:text-primary transition-colors"
+          >
+            <span className="text-muted-foreground mr-2">$</span>
+            <span className="mr-2">history</span>
+            <span className="text-foreground">| grep experience</span>
+          </Link>
         </h2>
       </div>
       <div>
