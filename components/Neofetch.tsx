@@ -48,7 +48,7 @@ export default function Neofetch() {
       <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center xl:items-center text-base">
         {/* Photo / Logo */}
         <div className="relative shrink-0">
-          <div className="h-32 w-32 xl:h-48 xl:w-48 overflow-hidden rounded-full border-4 border-muted bg-muted shadow-2xl">
+          <div className="relative h-32 w-32 xl:h-48 xl:w-48 overflow-hidden rounded-full border-4 border-muted bg-muted shadow-2xl">
             {/* Make sure to add your photo as 'public/profile.png' */}
             <Image
               src="/profile.png"

@@ -212,7 +212,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
 
               <div
                 className={cn(
-                  "overflow-hidden rounded-md border border-muted bg-black/50 backdrop-blur-md shadow-sm font-mono text-sm transition-all duration-700 ease-out",
+                  "overflow-hidden rounded-md border border-muted bg-card shadow-sm font-mono text-sm transition-all duration-700 ease-out",
                   showAboutEditor
                     ? "opacity-100 max-h-[1000px] translate-y-0"
                     : "opacity-0 max-h-0 -translate-y-4"
@@ -220,7 +220,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
               >
                 <div className="flex min-h-[300px]">
                   {/* Gutter */}
-                  <div className="flex w-12 flex-col items-end gap-1 border-r border-muted bg-neutral-900/50 py-4 pr-3 text-muted-foreground/30 select-none">
+                  <div className="flex w-12 flex-col items-end gap-1 border-r border-muted bg-muted/30 py-4 pr-3 text-muted-foreground/50 select-none">
                     {portfolioData.about.paragraphs.map((_, i) => (
                       <span key={i} className="leading-relaxed">
                         {i + 1}
@@ -232,7 +232,7 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
                   </div>
 
                   {/* Editor Content */}
-                  <div className="flex-1 px-4 py-4 text-slate-300 leading-relaxed">
+                  <div className="flex-1 px-4 py-4 text-card-foreground leading-relaxed">
                     {portfolioData.about.paragraphs.map((paragraph, index) => (
                       <p
                         key={index}
@@ -240,12 +240,12 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
                         dangerouslySetInnerHTML={{
                           __html: paragraph.replace(
                             /\[([^\]]+)\]\(([^)]+)\)/g,
-                            '<span class="text-foreground font-medium hover:text-primary transition-colors cursor-default">$1</span>'
+                            '<span class="text-primary font-bold hover:underline cursor-pointer">$1</span>'
                           ),
                         }}
                       />
                     ))}
-                    <p className="mt-4 text-emerald-500/50 italic">
+                    <p className="mt-4 text-emerald-600 dark:text-emerald-400 italic">
                       # I&apos;ve been using Vim for years... mostly because I
                       don't know how to exit.
                     </p>

@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
-import Navbar from "@/components/Navbar";
 
 export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
     <>
-      <Navbar />
       <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-16">
           <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { getExperienceBySlug } from "@/lib/experience";
-import Navbar from "@/components/Navbar";
 
 interface Props {
   params: Promise<{
@@ -30,7 +29,6 @@ export default async function ExperiencePage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <div className="mx-auto max-w-3xl px-6 py-12 sm:px-6 lg:px-8">
         <Link
           href="/experience"

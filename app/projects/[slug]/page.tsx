@@ -4,7 +4,6 @@ import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Mermaid from "@/components/Mermaid";
-import Navbar from "@/components/Navbar";
 
 interface PageProps {
   params: Promise<{
@@ -29,7 +28,6 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <Navbar />
       <div className="mx-auto max-w-3xl px-6 py-12 sm:px-6 lg:px-8">
         <Link
           href="/projects"

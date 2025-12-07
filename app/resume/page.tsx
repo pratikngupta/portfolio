@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { Download, ArrowLeft } from "lucide-react";
-import Navbar from "@/components/Navbar";
 
 export default function ResumePage() {
   return (
     <>
-      <Navbar />
       <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>

@@ -5,6 +5,7 @@ import NetworkParticles from "@/components/NetworkParticles";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import Terminal from "@/components/Terminal";
+import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -34,7 +35,7 @@ export default function RootLayout({
       <body
         className={cn(
           caveat.variable,
-          "antialiased min-h-screen flex flex-col pt-16 lg:pt-0 bg-background text-foreground font-sans leading-relaxed selection:bg-teal-300 selection:text-teal-900"
+          "antialiased min-h-screen flex flex-col bg-background text-foreground font-sans leading-relaxed selection:bg-teal-300 selection:text-teal-900"
         )}
       >
         <ThemeProvider
@@ -53,8 +54,9 @@ export default function RootLayout({
             "vscode-light",
           ]}
         >
+          <Navbar />
           <NetworkParticles />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-14">{children}</main>
           <SpeedInsights />
           <Analytics />
           <Terminal />
