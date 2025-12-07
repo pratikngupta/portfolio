@@ -7,8 +7,10 @@ import { useTheme } from "next-themes";
 export default function Neofetch() {
   const [uptime, setUptime] = useState<string>("0h 0m");
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const start = new Date("2024-01-01").getTime();
     const updateUptime = () => {
       const diff = new Date().getTime() - start;
@@ -102,51 +104,64 @@ export default function Neofetch() {
                 [ Select System Theme ]
               </span>
               <div className="flex gap-4 items-center">
-                <button
-                  onClick={() => setTheme("dark")}
-                  className={`h-5 w-5 rounded-full bg-black border border-white/20 hover:scale-110 transition-all ${
-                    theme === "dark" || theme === "system"
-                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                      : "opacity-60 hover:opacity-100"
-                  }`}
-                  title="Cyber Blue (Dark)"
-                ></button>
-                <button
-                  onClick={() => setTheme("one-light-pro")}
-                  className={`h-5 w-5 rounded-full bg-[#fdf6e3] border border-stone-300 hover:scale-110 transition-all ${
-                    theme === "one-light-pro"
-                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                      : "opacity-60 hover:opacity-100"
-                  }`}
-                  title="Solarized Light"
-                ></button>
-                <button
-                  onClick={() => setTheme("nord")}
-                  className={`h-5 w-5 rounded-full bg-[#88c0d0] hover:scale-110 transition-all ${
-                    theme === "nord"
-                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                      : "opacity-60 hover:opacity-100"
-                  }`}
-                  title="Nord"
-                ></button>
-                <button
-                  onClick={() => setTheme("obsidian")}
-                  className={`h-5 w-5 rounded-full bg-[#7b6cbd] hover:scale-110 transition-all ${
-                    theme === "obsidian"
-                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                      : "opacity-60 hover:opacity-100"
-                  }`}
-                  title="Obsidian"
-                ></button>
-                <button
-                  onClick={() => setTheme("vscode-modern-dark")}
-                  className={`h-5 w-5 rounded-full bg-[#007acc] hover:scale-110 transition-all ${
-                    theme === "vscode-modern-dark"
-                      ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
-                      : "opacity-60 hover:opacity-100"
-                  }`}
-                  title="VS Code Dark"
-                ></button>
+                {mounted ? (
+                  <>
+                    <button
+                      onClick={() => setTheme("dark")}
+                      className={`h-5 w-5 rounded-full bg-black border border-white/20 hover:scale-110 transition-all ${
+                        theme === "dark" || theme === "system"
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                          : "opacity-60 hover:opacity-100"
+                      }`}
+                      title="Cyber Blue (Dark)"
+                    />
+                    <button
+                      onClick={() => setTheme("one-light-pro")}
+                      className={`h-5 w-5 rounded-full bg-[#fdf6e3] border border-stone-300 hover:scale-110 transition-all ${
+                        theme === "one-light-pro"
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                          : "opacity-60 hover:opacity-100"
+                      }`}
+                      title="Solarized Light"
+                    />
+                    <button
+                      onClick={() => setTheme("nord")}
+                      className={`h-5 w-5 rounded-full bg-[#88c0d0] hover:scale-110 transition-all ${
+                        theme === "nord"
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                          : "opacity-60 hover:opacity-100"
+                      }`}
+                      title="Nord"
+                    />
+                    <button
+                      onClick={() => setTheme("obsidian")}
+                      className={`h-5 w-5 rounded-full bg-[#7b6cbd] hover:scale-110 transition-all ${
+                        theme === "obsidian"
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                          : "opacity-60 hover:opacity-100"
+                      }`}
+                      title="Obsidian"
+                    />
+                    <button
+                      onClick={() => setTheme("vscode-modern-dark")}
+                      className={`h-5 w-5 rounded-full bg-[#007acc] hover:scale-110 transition-all ${
+                        theme === "vscode-modern-dark"
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-black shadow-lg shadow-primary/20"
+                          : "opacity-60 hover:opacity-100"
+                      }`}
+                      title="VS Code Dark"
+                    />
+                  </>
+                ) : (
+                  /* Skeleton / Loading state to match structure but neutral style */
+                  <>
+                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
+                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
+                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
+                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
+                    <div className="h-5 w-5 rounded-full bg-muted/20 border border-muted" />
+                  </>
+                )}
               </div>
             </div>
           </div>
