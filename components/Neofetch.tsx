@@ -54,36 +54,36 @@ export default function Neofetch() {
           </div>
 
           <div className="grid grid-cols-[min-content_1fr] gap-x-4 gap-y-1 w-fit">
-            <span className="text-cyan-400 font-bold whitespace-nowrap">
+            <span className="text-primary font-bold whitespace-nowrap">
               Role:
             </span>
             <span className="text-white whitespace-nowrap">
               Software Engineer
             </span>
 
-            <span className="text-cyan-400 font-bold whitespace-nowrap">
+            <span className="text-primary font-bold whitespace-nowrap">
               Focus:
             </span>
             <span className="text-white whitespace-nowrap">
               Cloud-Native & AI
             </span>
 
-            <span className="text-cyan-400 font-bold whitespace-nowrap">
+            <span className="text-primary font-bold whitespace-nowrap">
               Passion:
             </span>
             <span className="text-white whitespace-nowrap">Innovation</span>
 
-            <span className="text-cyan-400 font-bold whitespace-nowrap">
+            <span className="text-primary font-bold whitespace-nowrap">
               Problem_Solving:
             </span>
             <span className="text-white whitespace-nowrap">Data-Intensive</span>
 
-            <span className="text-cyan-400 font-bold whitespace-nowrap">
+            <span className="text-primary font-bold whitespace-nowrap">
               Uptime:
             </span>
             <span className="text-white whitespace-nowrap">{uptime}</span>
 
-            <span className="text-cyan-400 font-bold whitespace-nowrap">
+            <span className="text-primary font-bold whitespace-nowrap">
               Shell:
             </span>
             <span className="text-white whitespace-nowrap">zsh 5.9</span>
