@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat } from "next/font/google";
 import "./globals.css";
-import BackgroundGrid from "@/components/BackgroundGrid";
+import NetworkParticles from "@/components/NetworkParticles";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -51,7 +51,7 @@ export default function RootLayout({
             "vscode-light",
           ]}
         >
-          <BackgroundGrid />
+          <NetworkParticles />
           <main className="flex-1">{children}</main>
         </ThemeProvider>
       </body>
