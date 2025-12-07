@@ -1,26 +1,226 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-handwriting: var(--font-caveat), cursive;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc; /* Slate 50 */
+  --foreground: #0f172a; /* Slate 900 */
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #0f766e; /* Teal 700 */
+  --primary-foreground: #f8fafc;
+  --secondary: #e2e8f0; /* Slate 200 */
+  --secondary-foreground: #0f172a;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b; /* Slate 500 */
+  --accent: #f1f5f9; /* Slate 100 */
+  --accent-foreground: #0f766e;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0f766e;
+  --radius: 0.75rem;
 }
+
+.dark {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --card: #0f172a;
+  --card-foreground: #e2e8f0;
+  --popover: #0f172a;
+  --popover-foreground: #e2e8f0;
+  --primary: #5eead4; /* Teal 300 */
+  --primary-foreground: #0f172a;
+  --secondary: #334155;
+  --secondary-foreground: #e2e8f0;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #5eead4;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #5eead4;
+}
+/* Nord Theme */
+.nord {
+  --background: #2e3440;
+  --foreground: #d8dee9;
+  --card: #3b4252;
+  --card-foreground: #eceff4;
+  --popover: #3b4252;
+  --popover-foreground: #eceff4;
+  --primary: #88c0d0;
+  --primary-foreground: #2e3440;
+  --secondary: #434c5e;
+  --secondary-foreground: #d8dee9;
+  --muted: #4c566a;
+  --muted-foreground: #d8dee9;
+  --accent: #434c5e;
+  --accent-foreground: #88c0d0;
+  --destructive: #bf616a;
+  --destructive-foreground: #eceff4;
+  --border: #434c5e;
+  --input: #434c5e;
+  --ring: #88c0d0;
+}
+
+/* Obsidian Theme */
+.obsidian {
+  --background: #111111; /* Extremely dark grey, near black */
+  --foreground: #dcddde; /* Off-white for text */
+  --card: #202020; /* Dark grey for cards */
+  --card-foreground: #dcddde;
+  --popover: #202020;
+  --popover-foreground: #dcddde;
+  --primary: #7b6cbd; /* Purple/Blue accent */
+  --primary-foreground: #ffffff;
+  --secondary: #2f2f2f;
+  --secondary-foreground: #dcddde;
+  --muted: #2f2f2f;
+  --muted-foreground: #999999;
+  --accent: #2f2f2f;
+  --accent-foreground: #7b6cbd;
+  --destructive: #f44336;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #7b6cbd;
+}
+
+/* One Dark Pro Theme */
+.one-dark-pro {
+  --background: #282c34;
+  --foreground: #abb2bf;
+  --card: #21252b;
+  --card-foreground: #abb2bf;
+  --popover: #21252b;
+  --popover-foreground: #abb2bf;
+  --primary: #61afef; /* Blue */
+  --primary-foreground: #282c34;
+  --secondary: #3b4048;
+  --secondary-foreground: #abb2bf;
+  --muted: #3b4048;
+  --muted-foreground: #5c6370;
+  --accent: #3b4048;
+  --accent-foreground: #61afef;
+  --destructive: #e06c75;
+  --destructive-foreground: #abb2bf;
+  --border: #3b4048;
+  --input: #3b4048;
+  --ring: #61afef;
+}
+
+/* One Light Pro Theme */
+.one-light-pro {
+  --background: #fafafa;
+  --foreground: #383a42;
+  --card: #ffffff;
+  --card-foreground: #383a42;
+  --popover: #ffffff;
+  --popover-foreground: #383a42;
+  --primary: #4078f2; /* Blue */
+  --primary-foreground: #fafafa;
+  --secondary: #e5e5e6;
+  --secondary-foreground: #383a42;
+  --muted: #e5e5e6;
+  --muted-foreground: #a0a1a7;
+  --accent: #f0f0f1;
+  --accent-foreground: #4078f2;
+  --destructive: #e45649;
+  --destructive-foreground: #fafafa;
+  --border: #e5e5e6;
+  --input: #e5e5e6;
+  --ring: #4078f2;
+}
+
+/* VS Code Dark Theme */
+.vscode-modern-dark {
+  --background: #1f1f1f;
+  --foreground: #cccccc;
+  --card: #252526;
+  --card-foreground: #cccccc;
+  --popover: #252526;
+  --popover-foreground: #cccccc;
+  --primary: #007acc;
+  --primary-foreground: #ffffff;
+  --secondary: #2d2d2d;
+  --secondary-foreground: #cccccc;
+  --muted: #2d2d2d;
+  --muted-foreground: #858585;
+  --accent: #37373d;
+  --accent-foreground: #007acc;
+  --destructive: #f14c4c;
+  --destructive-foreground: #ffffff;
+  --border: #3e3e42;
+  --input: #3e3e42;
+  --ring: #007acc;
+}
+
+/* VS Code Light Theme */
+.vscode-light {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #f3f3f3;
+    --card-foreground: #000000;
+    --popover: #f3f3f3;
+    --popover-foreground: #000000;
+    --primary: #007acc;
+    --primary-foreground: #ffffff;
+    --secondary: #e4e6f1;
+    --secondary-foreground: #000000;
+    --muted: #e4e6f1;
+    --muted-foreground: #6c6c6c;
+    --accent: #f3f3f3;
+    --accent-foreground: #007acc;
+    --destructive: #cd3131;
+    --destructive-foreground: #ffffff;
+    --border: #cecece;
+    --input: #cecece;
+    --ring: #007acc;
+}
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-muted-foreground: var(--muted-foreground);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
   }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Monaspace Neon", Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+::selection {
+  background-color: rgba(94, 234, 212, 0.2); /* Teal 300 with opacity */
+  color: #5eead4;
 }

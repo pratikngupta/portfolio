@@ -1,0 +1,15 @@
+{
+  "about": {
+    "title": "About",
+    "paragraphs": [
+      "A versatile and detail-oriented Software Engineering student at Western University with a strong foundation in object-oriented programming, cloud technologies, and machine learning.",
+      "My experience includes building scalable solutions for [Canada Basketball](#experience) using Computer Vision and AWS, and optimizing data architecture for [Ajinomoto Foods](#experience).",
+      "I am passionate about building accessible, inclusive products and solving real-world business problems through data-driven analysis."
+    ]
+  },
+  "social": {
+    "github": "https://github.com",
+    "linkedin": "https://linkedin.com",
+    "email": "mailto:hello@example.com"
+  }
+}

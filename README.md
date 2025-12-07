@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Portfolio & Blog
 
-## Getting Started
+This is a modern portfolio built with **Next.js**, **Tailwind CSS 4**, and **Framer Motion**.
 
-First, run the development server:
+## How to add a Blog Post
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The blog system is file-system based. You can add posts in two ways:
+
+### Method 1: Drop a Folder (Recommended)
+
+Create a new folder in `blog/` with the name of your slug (URL path), and add an `index.md`.
+
+Example: `blog/my-awesome-project/index.md`
+
+```markdown
+---
+title: "My Awesome Project"
+date: "2025-12-05"
+description: "How I built this thing."
+tags: ["nextjs", "react"]
+coverImage: "/images/cover.jpg"
+---
+
+# Hello World
+
+Content goes here...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can also drop images in that same folder and reference them like `![My Image](./image.png)` (Note: for local images in markdown to work perfectly with Next.js Image optimization, you might need extra plugins, but standard markdown image syntax with relative paths requires some config or putting images in `public/`. For simplicity, put images in `public/images/` and reference as `/images/...` or configure `remark` plugins).
+_Note: The current setup simply renders markdown. For relative image support in the same folder, standard `react-markdown` won't automatically resolve Next.js public paths relative to the blog folder unless we process the AST. For now, use absolute paths to `public` folder like `/my-image.png`._
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Method 2: Drop a File
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a markdown file directly in `blog/`.
 
-## Learn More
+Example: `blog/my-post.md`
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Modern Design**: Glassmorphism, gradients, and subtle animations.
+- **Dark Mode**: Automatic system detection.
+- **Responsive**: Works on mobile and desktop.
+- **SEO Optimized**: Metadata and semantic HTML.

@@ -9,9 +9,22 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fontsource/monaspace-krypton": "^5.2.5",
+    "@fontsource/monaspace-neon": "^5.2.5",
+    "@fontsource/monaspace-radon": "^5.2.5",
+    "@tailwindcss/typography": "^0.5.19",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.25",
+    "fs": "^0.0.1-security",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.556.0",
     "next": "16.0.7",
+    "next-themes": "^0.4.6",
+    "pdf-extraction": "^1.0.2",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-markdown": "^10.1.0",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
