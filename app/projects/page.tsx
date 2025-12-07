@@ -9,7 +9,7 @@ export default function ProjectsIndex() {
   return (
     <>
       <Navbar />
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-16">
           <h1 className="font-handwriting text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             All Projects

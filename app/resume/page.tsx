@@ -6,7 +6,7 @@ export default function ResumePage() {
   return (
     <>
       <Navbar />
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="font-handwriting text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
