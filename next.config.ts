@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // <=== Required for static export (unless using a cloud loader)
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: process.env.GITHUB_ACTIONS ? "/portfolio" : "",
+  },
   /* 
    * Set basePath only for GitHub Pages deployment
    * This fixes local preview (npx serve out) by not enforcing the path locally

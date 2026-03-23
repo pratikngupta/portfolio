@@ -51,7 +51,7 @@ export default function Neofetch() {
           <div className="relative h-32 w-32 xl:h-48 xl:w-48 overflow-hidden rounded-full border-4 border-muted bg-muted shadow-2xl">
             {/* Make sure to add your photo as 'public/profile.png' */}
             <Image
-              src="/profile.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/profile.png`}
               alt="Pratik Gupta"
               fill
               className="object-cover"
