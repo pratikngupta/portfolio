@@ -1,6 +1,6 @@
 ---
 company: "Western Artificial Intelligence"
-logo: ""
+logo: "/logo/wai.png"
 title: "VP of Project"
 date: "2023 — 2024"
 description: "Leading a year-long program for students, enabling them to develop and deploy AI applications showcased at major conferences."

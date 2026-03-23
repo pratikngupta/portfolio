@@ -82,7 +82,6 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    { name: "Writing", href: "/blog" },
     { name: "Resume", href: "/resume" },
   ];
 
@@ -344,13 +343,14 @@ export default function ClientHome({ projects, experiences }: ClientHomeProps) {
             {/* Footer styled bottom segment */}
             <footer className="max-w-md pb-16 text-sm text-muted-foreground sm:pb-0">
               <p>
-                Designed in <span className="text-foreground">Figma</span> and
-                coded in{" "}
-                <span className="text-foreground">Visual Studio Code</span> by
-                yours truly. Built with{" "}
-                <span className="text-foreground">Next.js</span> and{" "}
-                <span className="text-foreground">Tailwind CSS</span>, deployed
-                with <span className="text-foreground">Vercel</span>.
+                Built in the modern era of AI — powered by my ideas, accelerated
+                with tools like{" "}
+                <span className="text-foreground">Claude</span> and{" "}
+                <span className="text-foreground">Gemini</span>, and brought to
+                life using{" "}
+                <span className="text-foreground">Next.js</span>,{" "}
+                <span className="text-foreground">Tailwind CSS</span>, and{" "}
+                <span className="text-foreground">Vercel</span>.
               </p>
             </footer>
           </main>

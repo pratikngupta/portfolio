@@ -60,12 +60,10 @@ export function getAllProjects(): Project[] {
   return allProjectsData
     .filter((project): project is Project => project !== null)
     .sort((a, b) => {
-      // If one has date and other doesn't, prioritize one with date? 
-      // Or just default to alphabetical if no date.
-      if (a.date && b.date) {
-        return a.date < b.date ? 1 : -1;
-      }
-      return 0; 
+      if (a.date && b.date) return a.date < b.date ? 1 : -1;
+      if (a.date && !b.date) return -1;
+      if (!a.date && b.date) return 1;
+      return 0;
     });
 }
 

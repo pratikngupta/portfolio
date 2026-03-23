@@ -1,14 +1,14 @@
 ---
 company: "Western Artificial Intelligence"
-logo: ""
+logo: "/logo/wai.png"
 title: "Developer"
 date: "2022 — 2023"
-description: "Using hardware combined with Artificial Intelligence to investigate brain signal processing."
-tags: ["Machine Learning", "Signal Processing", "Hardware"]
+description: "Investigated motor imagery EEG signal processing using machine learning techniques, representing Western University at CUCAI 2023."
+tags: ["Machine Learning", "EEG", "Signal Processing", "Python", "TensorFlow", "BCI"]
 link: "https://westernai.ca"
 ---
 
-- **Motor Imagery Classification**: Developed a custom **Convolutional Neural Network (CNN)** architecture (3 layers, 128 filters, ReLU) using **TensorFlow** and **Keras** to classify EEG signals for Left/Right hand motor imagery.
-- **Signal Processing Pipeline**: Implemented a robust preprocessing pipeline including **4th-order Butterworth band-pass filtering** (7.5-30 Hz) for Alpha/Beta waves, **Common Spatial Patterns (CSP)** for dimensionality reduction, and **Stockwell Transform** for time-frequency analysis.
-- **Research & Analysis**: Achieved ~60% validation accuracy on the **BCI Competition IV 2a** dataset. Conducted extensive error analysis to identify overfitting issues and proposed future improvements using Continuous Wavelet Transforms (CWT).
-- **Conference Presentation**: Authored and presented "PiBrain: CNN-based Motor Imagery Classification" at the **Canadian Undergraduate Conference on Artificial Intelligence (CUCAI) 2023**, detailing the complete BCI pipeline from raw signal to classification.
+- **Motor Imagery Research**: Investigated motor imagery EEG signal processing using machine learning techniques on open-source datasets, modeling neural activity through signal processing and classification pipelines for brain–computer interface (BCI) applications.
+- **Signal Processing Pipeline**: Built classification pipelines to study and decode brain signals, applying standard ML techniques to open-source EEG datasets.
+- **Conference Representation**: Represented **Western University** at **CUCAI** (Canadian Undergraduate Conference on Artificial Intelligence).
+- **Publication**: Schultz, L., Gupta, P., Choudhury, S. *"Classifying Motor Imagery from Open-Source Datasets."* Proceedings of CUCAI 2023. [[View Paper]](https://drive.google.com/file/d/16ZJLhlA6t23tT-D9DQtLmKx-DZMM-XeW/view?usp=sharing)

@@ -83,7 +83,6 @@ export default function Terminal() {
           content: `directories:
   projects/
   experience/
-  blog/
 
 files:
   about.md
@@ -106,7 +105,7 @@ files:
             content: "Changed directory to ~/",
           });
         } else {
-          const validRoutes = ["projects", "experience", "blog"];
+          const validRoutes = ["projects", "experience"];
           const target = arg.replace(/\/$/, ""); // remove trailing slash
           if (validRoutes.includes(target)) {
             router.push(`/${target}`);

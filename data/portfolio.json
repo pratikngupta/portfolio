@@ -2,9 +2,9 @@
   "about": {
     "title": "About",
     "paragraphs": [
-      "A forward-thinking Software Engineering student at Western University specializing in Cloud Computing and Machine Learning, dedicated to architecting intelligent, scalable systems.",
-      "My technical track record includes engineering an automated Computer Vision system on AWS for [Canada Basketball](#experience), and modernizing enterprise data infrastructure for [Ajinomoto Foods](#experience).",
-      "I am passionate about leveraging cloud-native technologies and advanced AI to drive innovation and solve complex, data-intensive problems."
+      "A Software Engineering student at Western University passionate about building resilient, high-performance systems at the intersection of AI, robotics, and cloud-native infrastructure.",
+      "Currently leading a full autonomous VTOL mission system at [Western Aero Design](#experience), building predictive maintenance models at [Motorshield](#experience), and architecting a computer vision analysis platform for [Canada Basketball](#experience).",
+      "I thrive in deep technical challenges — from PX4 firmware and LoRa telemetry to CNN/Transformer architectures and scalable data pipelines. Previously modernized enterprise data infrastructure at [Ajinomoto Foods](#experience), identifying over $150,000 in annual savings."
     ]
   },
   "social": {

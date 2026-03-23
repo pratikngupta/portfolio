@@ -5,6 +5,7 @@ tags: ["Python", "Computer Vision", "Machine Learning", "Full Stack"]
 date: "2024-05-01"
 # link: "https://example.com"
 # github: "https://github.com/example/courtsense"
+coverImage: "/courtsense.png"
 ---
 
 ## Overview

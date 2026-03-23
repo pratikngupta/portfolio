@@ -11,7 +11,7 @@ export default function Neofetch() {
 
   useEffect(() => {
     setMounted(true);
-    const start = new Date("2024-01-01").getTime();
+    const start = new Date("2021-09-01").getTime();
     const updateUptime = () => {
       const diff = new Date().getTime() - start;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -96,7 +96,7 @@ export default function Neofetch() {
               Focus:
             </span>
             <span className="text-foreground whitespace-nowrap">
-              Cloud-Native & AI
+              AI &amp; Robotics
             </span>
 
             <span className="text-primary font-bold whitespace-nowrap">
@@ -110,7 +110,7 @@ export default function Neofetch() {
               Problem_Solving:
             </span>
             <span className="text-foreground whitespace-nowrap">
-              Data-Intensive
+              Embedded Systems
             </span>
 
             <span className="text-primary font-bold whitespace-nowrap">
@@ -161,9 +161,9 @@ export default function Neofetch() {
       </div>
 
       <div className="mt-6 text-xs leading-relaxed max-w-sm text-balance">
-        &quot;I am passionate about leveraging cloud-native technologies and
-        advanced AI to drive innovation and solve complex, data-intensive
-        problems.&quot;
+        &quot;Building resilient systems at the intersection of AI, robotics, and
+        cloud-native infrastructure — from PX4 firmware to CNN/Transformer
+        architectures.&quot;
       </div>
     </div>
   );

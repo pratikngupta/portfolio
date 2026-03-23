@@ -1,6 +1,6 @@
 ---
 company: "WE-Bots"
-logo: ""
+logo: "/logo/webots.png"
 title: "Software Engineer"
 date: "2023 — 2024"
 description: "Collaborated on developing an innovative communication system for robotic systems involved in 3x3 basketball gameplay."

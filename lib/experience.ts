@@ -43,17 +43,30 @@ export function getAllExperiences(): Experience[] {
       } as Experience;
     })
     .sort((a, b) => {
-        // Simple heuristic: if 'Present' in date, it comes first
         const dateA = a.date || "";
         const dateB = b.date || "";
-        const aIsPresent = dateA.includes("Present");
-        const bIsPresent = dateB.includes("Present");
-        
+        const aIsPresent = dateA.toLowerCase().includes("present");
+        const bIsPresent = dateB.toLowerCase().includes("present");
+
+        // Parse the start date from strings like "September 2025 — Present" or "May 2024 — April 2025" or "2022 — 2023"
+        const parseStartDate = (dateStr: string): Date => {
+          const part = dateStr.split(/[—–-]/)[0].trim();
+          const parsed = new Date(part);
+          if (!isNaN(parsed.getTime())) return parsed;
+          // fallback: just extract the first 4-digit year
+          const yearMatch = part.match(/(\d{4})/);
+          return yearMatch ? new Date(`${yearMatch[1]}-01-01`) : new Date(0);
+        };
+
+        // Both present: sort by start date descending
+        if (aIsPresent && bIsPresent) {
+          return parseStartDate(dateB).getTime() - parseStartDate(dateA).getTime();
+        }
         if (aIsPresent && !bIsPresent) return -1;
         if (!aIsPresent && bIsPresent) return 1;
-        
-        // Otherwise basic string comparison or you'd need real date parsing
-        return 0; 
+
+        // Neither present: sort by start date descending
+        return parseStartDate(dateB).getTime() - parseStartDate(dateA).getTime();
     });
 
   return allExperiences;
